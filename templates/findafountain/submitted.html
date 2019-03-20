@@ -1,0 +1,23 @@
+{% extends 'findafountain/base.html' %}
+{% load staticfiles %}
+
+{% block titleblock %}Submission Accepted{% endblock %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+	<div>
+		<b><p>Thank you for your submission, we really appreciate it!
+  		Why don't you stay with us and take another look around?</p></b> 
+
+	</div>
+	<div>
+	<img src= "{% static 'img/magic-fountain.jpg' %}" alt="Image of a water fountain"/><br />
+		<a href="{% url 'index' %}">Home</a>
+		<a href="{% url 'about' %}">About</a>
+		<a href="{% url 'contact' %}">Contact</a>
+		<a href="{% url 'submit' %}">Submit</a>
+		<a href= "{% url 'logout' %}">Logout</a><br />
+		<b>We look forward to your next submission. Stay hydrated, kids.</b>
+	</div>
+{% endblock %}
