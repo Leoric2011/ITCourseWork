@@ -97,8 +97,9 @@ def submit(request):
 		game_form = DiscountForm(data=request.POST)
 		if game_form.is_valid():
 			game = game_form.save(commit=False)
-			game.lat = request.POST.get("latitude", None)
-			game.lng = request.POST.get("longitude", None)
+			# game.lat = request.POST.get("latitude", None)
+			# game.lng = request.POST.get("longitude", None)
+			game.judgediscount = request.POST.get('judgediscount')
 			game.save()
 			return HttpResponseRedirect(reverse('submitted'))
 		else:

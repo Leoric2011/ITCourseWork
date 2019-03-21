@@ -15,9 +15,9 @@
 
 
 <div class = "container-fluid">
-	<div class = "row">
+	<div class = "row" style="background-color: #ffeeba">
 
-		<div class = "col-sm">
+		<div class = "col-sm" >
 
 		{% if user.is_authenticated %}
 			<h3><b>Any discounts find?<br/>
@@ -28,7 +28,7 @@
 
 			<h2><b>You can Find Discounts Here</b></h2><hr>
 		
-			<div style="max-height: 700px; overflow:auto; padding: 20px; border: 2px solid gray;">
+			<div style="max-height: 800px; overflow:auto; padding: 20px; border: 2px solid gray;">
 
 					{% for item in activity %}
 				
@@ -38,7 +38,7 @@
 
 							{% if item.title %}
 
-								<b> {{item.user}}</b> reviewed the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a> game in the {{item.game.building}}<br/>
+								<b> {{item.user}}</b> reviewed the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a><br/>
 
 								<div style ="color:gray">
 									{{item.datetime}}<br/>
@@ -49,7 +49,7 @@
 
 							{% else %}
 
-								<b> {{item.user}}</b> rated the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a> game in the {{item.game.building}}<br/>
+								<b> {{item.user}}</b> rated the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a><br/>
 
 								<div style ="color:gray"> 
 									{{item.datetime}}<br/>
@@ -68,76 +68,21 @@
 		</div>
 
 		<div class = "col-sm">
-		<a class="twitter-timeline" data-width="300" data-height="700" href="https://twitter.com/discount_finder?ref_src=twsrc%5Etfw">Tweets by discount_finder</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		<a class="twitter-timeline" data-width="500" data-height="900" href="https://twitter.com/PlayStation">Tweets by PlayStation</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 
-		<div>
-		<br/>  	
-			<button type="button" class="btn" alt="Show all" align="center" onclick="showAllMarkers()">
-				<b>Show all</b>
-			</button> 
+		<div class ="col-sm" style="max-height: 800px">
 
-			<button type="button"
-                    class="btn"
-                    alt="Find nearest" align="centert" onclick="findNearest()">
-				<b>Show nearest<b>  
-	 		</button> 
+            {% for game in games %}
+       <div style="height:15%; width:30%; float: left; margin-left: 3%;padding: 5%; font-size: 6px;border:1px solid white;">
+            <img width=70 height=70 src='{{ MEDIA_URL}}{{game.image}}'><br>
+        <a href="/game/{{game.id}}">{{ game.name }}</a>
 
-			<button type="button"  class="btn" alt="Search: " align="center">
-				
-				<b>Building: </b> 
-					<select id ="Building" onchange="sortMarkers(), enableFloor()">
-						<option value="all">All</option>
-						{% for discount in buildings %}
-						{% if discount.building %}
-						<option value="{{discount.building}}">{{discount.building}}</option>
-						{% endif %}
-						{% endfor %}
-					</select>
-				<b>Floor: </b>
-					<select id ="Floor" onchange="sortMarkers()">
-						<option value="all">All</option>
-						{% for discount in floors %}
-						{% if discount.floor %}
-						<option value="{{discount.floor}}">{{discount.floor}}</option>
-						{% endif %}
-						{% endfor %}
-					</select>
-			</button> 
-
-			<br/><br/>
-
-			<div id="map" div style="max-height: 800px">
-
-			  <script>
-
-			  	var locations = [
-
-					{% for discount in discounts %}
-
-					['{{discount.name}}', {{discount.lat}}, {{discount.lng}}, '{{discount.image}}', '{{discount.description}}', {% if discount.floor %} {{discount.floor}} {% else %} 'n/a' {% endif %}, {{discount.reviews}}, {{discount.rating}}, {{discount.numberratings}}, {{discount.avgrating}}, {{discount.popularity}}, {% if discount.broken %} "Yes" {% else %} "No" {% endif %}, {% if discount.building %} '{{discount.building}}' {% else %} 'n/a' {% endif %}, {{discount.id}}],
-					{% endfor %}
-
-					];
-
-					window.onload = function() {
-						initMap(); 
-						enableFloor(); 
-						locateUser();
-						loadAll();
-					}
-
-			 </script>
-
-			<script async defer
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALaN1AQdFvEnlLyNLdHUmYKSjX5C82B4I&callback=initMap">
-			</script>
-
-		</div>
-
+    </div>
+            {% endfor %}
 	</div>
 
 
 </div>
-
+</div>>
 {% endblock %}

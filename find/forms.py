@@ -51,7 +51,7 @@ class DiscountForm (forms.ModelForm):
 	Is_Discount = forms.BooleanField()
 	class Meta:
 		model = Discount
-		fields = ('name', 'price', 'description', 'image', 'Is_Discount')
+		fields = ('name', 'price', 'description', 'image')
 
 class BrokenDiscountForm (forms.ModelForm):
 	broken = forms.BooleanField()

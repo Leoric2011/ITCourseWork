@@ -22,9 +22,15 @@
 
 					<form id = "game_form" method="post" action="{% url 'submit' %}" enctype="multipart/form-data">
 
-
 					{% csrf_token %}
-                                                {{ game_form.as_p }}
+
+                         {{ game_form.as_p }}
+
+                <input  type="radio"  name="judgediscount" value="True"/>
+                <label >discount</label>
+                <input  type="radio"  name="judgediscount" value="False" />
+                <label >original</label>
+
 
 					<input type="submit" name="submit" value="Submit" />
 					</form>
