@@ -1,0 +1,143 @@
+{% extends 'find/base.html' %}
+{% load staticfiles %}
+
+{% block titleblock %}Home{% endblock %}
+
+{% block title %}
+	<h1>Is There Any Discount ?</h1>
+{% endblock %}
+
+{% block content %}
+
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+<script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+
+
+
+<div class = "container-fluid">
+	<div class = "row">
+
+		<div class = "col-sm">
+
+		{% if user.is_authenticated %}
+			<h3><b>Any discounts find?<br/>
+			<a href = "{% url 'submit' %}" >Share to others!</a></b></h3>
+		{% else %}
+			<h3><b> Sign Up <a href = "{% url 'register' %}" >Here</a> to share discounts</b></h3><hr>
+		{% endif %}
+
+			<h2><b>You can Find Discounts Here</b></h2><hr>
+		
+			<div style="max-height: 700px; overflow:auto; padding: 20px; border: 2px solid gray;">
+
+					{% for item in activity %}
+				
+					<img width='75' src='{{MEDIA_URL}}{{item.user.picture}}' align="left" style="padding: 0 10px 0 0px"/>
+
+						<div style="text-align:left">
+
+							{% if item.title %}
+
+								<b> {{item.user}}</b> reviewed the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a> game in the {{item.game.building}}<br/>
+
+								<div style ="color:gray">
+									{{item.datetime}}<br/>
+								</div>
+
+								<b> "{{item.title}}" </b> <br/>
+								{{item.text}}
+
+							{% else %}
+
+								<b> {{item.user}}</b> rated the <a href ='/game/{{item.game.id}}'>{{item.game.name}}</a> game in the {{item.game.building}}<br/>
+
+								<div style ="color:gray"> 
+									{{item.datetime}}<br/>
+								</div> 
+
+							{% endif %}
+
+						</div>
+
+						<hr> 
+
+					{% endfor %}
+
+			</div>
+
+		</div>
+
+		<div class = "col-sm">
+		<a class="twitter-timeline" data-width="300" data-height="700" href="https://twitter.com/discount_finder?ref_src=twsrc%5Etfw">Tweets by discount_finder</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+		</div>
+
+		<div>
+		<br/>  	
+			<button type="button" class="btn" alt="Show all" align="center" onclick="showAllMarkers()">
+				<b>Show all</b>
+			</button> 
+
+			<button type="button"
+                    class="btn"
+                    alt="Find nearest" align="centert" onclick="findNearest()">
+				<b>Show nearest<b>  
+	 		</button> 
+
+			<button type="button"  class="btn" alt="Search: " align="center">
+				
+				<b>Building: </b> 
+					<select id ="Building" onchange="sortMarkers(), enableFloor()">
+						<option value="all">All</option>
+						{% for discount in buildings %}
+						{% if discount.building %}
+						<option value="{{discount.building}}">{{discount.building}}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+				<b>Floor: </b>
+					<select id ="Floor" onchange="sortMarkers()">
+						<option value="all">All</option>
+						{% for discount in floors %}
+						{% if discount.floor %}
+						<option value="{{discount.floor}}">{{discount.floor}}</option>
+						{% endif %}
+						{% endfor %}
+					</select>
+			</button> 
+
+			<br/><br/>
+
+			<div id="map" div style="max-height: 800px">
+
+			  <script>
+
+			  	var locations = [
+
+					{% for discount in discounts %}
+
+					['{{discount.name}}', {{discount.lat}}, {{discount.lng}}, '{{discount.image}}', '{{discount.description}}', {% if discount.floor %} {{discount.floor}} {% else %} 'n/a' {% endif %}, {{discount.reviews}}, {{discount.rating}}, {{discount.numberratings}}, {{discount.avgrating}}, {{discount.popularity}}, {% if discount.broken %} "Yes" {% else %} "No" {% endif %}, {% if discount.building %} '{{discount.building}}' {% else %} 'n/a' {% endif %}, {{discount.id}}],
+					{% endfor %}
+
+					];
+
+					window.onload = function() {
+						initMap(); 
+						enableFloor(); 
+						locateUser();
+						loadAll();
+					}
+
+			 </script>
+
+			<script async defer
+					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyALaN1AQdFvEnlLyNLdHUmYKSjX5C82B4I&callback=initMap">
+			</script>
+
+		</div>
+
+	</div>
+
+
+</div>
+
+{% endblock %}

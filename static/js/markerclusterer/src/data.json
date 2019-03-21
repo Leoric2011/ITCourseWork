@@ -307,7 +307,7 @@ var data = { "count": 10785236,
 ,
 {"photo_id": 241562, "photo_title": "Süd-Ostisland", "photo_url": "http://www.panoramio.com/photo/241562", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/241562.jpg", "longitude": -17.512207, "latitude": 63.954261, "width": 500, "height": 326, "upload_date": "26 December 2006", "owner_id": 14774, "owner_name": "Frank Block", "owner_url": "http://www.panoramio.com/user/14774"}
 ,
-{"photo_id": 48899, "photo_title": "Bellagio Fountain", "photo_url": "http://www.panoramio.com/photo/48899", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/48899.jpg", "longitude": -115.174227, "latitude": 36.112778, "width": 500, "height": 375, "upload_date": "16 September 2006", "owner_id": 7190, "owner_name": "Perry Tang", "owner_url": "http://www.panoramio.com/user/7190"}
+{"photo_id": 48899, "photo_title": "Bellagio Discount", "photo_url": "http://www.panoramio.com/photo/48899", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/48899.jpg", "longitude": -115.174227, "latitude": 36.112778, "width": 500, "height": 375, "upload_date": "16 September 2006", "owner_id": 7190, "owner_name": "Perry Tang", "owner_url": "http://www.panoramio.com/user/7190"}
 ,
 {"photo_id": 49822, "photo_title": "Baños termales en Alhama de Granada", "photo_url": "http://www.panoramio.com/photo/49822", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/49822.jpg", "longitude": -3.983274, "latitude": 37.018248, "width": 374, "height": 500, "upload_date": "19 September 2006", "owner_id": 5477, "owner_name": "errece", "owner_url": "http://www.panoramio.com/user/5477"}
 ,
@@ -1939,7 +1939,7 @@ var data = { "count": 10785236,
 ,
 {"photo_id": 993129, "photo_title": "Würzburg", "photo_url": "http://www.panoramio.com/photo/993129", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/993129.jpg", "longitude": 9.931523, "latitude": 49.793310, "width": 500, "height": 395, "upload_date": "24 February 2007", "owner_id": 83972, "owner_name": "Maxim Popov (http://www.popovm.ru)", "owner_url": "http://www.panoramio.com/user/83972"}
 ,
-{"photo_id": 1836922, "photo_title": "Fountain Place / Dallas / Texas", "photo_url": "http://www.panoramio.com/photo/1836922", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/1836922.jpg", "longitude": -96.802940, "latitude": 32.785236, "width": 500, "height": 405, "upload_date": "19 April 2007", "owner_id": 57778, "owner_name": "William Lile", "owner_url": "http://www.panoramio.com/user/57778"}
+{"photo_id": 1836922, "photo_title": "Discount Place / Dallas / Texas", "photo_url": "http://www.panoramio.com/photo/1836922", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/1836922.jpg", "longitude": -96.802940, "latitude": 32.785236, "width": 500, "height": 405, "upload_date": "19 April 2007", "owner_id": 57778, "owner_name": "William Lile", "owner_url": "http://www.panoramio.com/user/57778"}
 ,
 {"photo_id": 3409786, "photo_title": "Molinos de Elguea con Gorbea al fondo", "photo_url": "http://www.panoramio.com/photo/3409786", "photo_file_url": "http://mw2.google.com/mw-panoramio/photos/medium/3409786.jpg", "longitude": -2.325025, "latitude": 42.951271, "width": 500, "height": 303, "upload_date": "19 July 2007", "owner_id": 129297, "owner_name": "Enrique Ortiz de Zárate", "owner_url": "http://www.panoramio.com/user/129297"}
 ,

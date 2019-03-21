@@ -1,4 +1,4 @@
-Check us out on Python Anywhere at https://findafountain.pythonanywhere.com/
+Check us out on Python Anywhere at https://find.pythonanywhere.com/
 
 The website makes use of Google Maps geolocation and it is highly recommended to run it as a secure HTTPS site, with location services enabled. 
 
@@ -25,7 +25,7 @@ To Start the Project:
 
 10.) python manage.py migrate
 
-11.) python manage.py addfountains
+11.) python manage.py addgames
 
 12.) python manage.py addusers
 
@@ -36,9 +36,9 @@ To Start the Project:
 
 Itech Folder Structure:
 
-	-fountain (PROJECT FOLDER-has settings/urls/wsgi)
+	-game (PROJECT FOLDER-has settings/urls/wsgi)
 	
-	-findafountain (app--has app shit)
+	-find (app--has app shit)
 	
 	-static 
 	
